@@ -1,8 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:crud_firebase_app/main.dart';
 import 'package:crud_firebase_app/model/user.dart';
 import 'package:crud_firebase_app/user_page.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 class MainPage extends StatefulWidget {
@@ -58,12 +56,36 @@ class _MainPageState extends State<MainPage> {
     );
   }
 
+  deleteUser(String id) {
+    final docUser = FirebaseFirestore.instance.collection('users').doc(id);
+
+    docUser.delete();
+  }
+
   Widget buildUser(User user) => ListTile(
         leading: CircleAvatar(
           child: Text("${user.age}"),
         ),
         title: Text("${user.name}"),
         subtitle: Text("${user.birthday!.toIso8601String()}"),
+        trailing: Container(
+          width: 100,
+          // color: Colors.black,
+          child: Row(
+            children: [
+              IconButton(
+                onPressed: () {
+                  deleteUser(user.id!);
+                },
+                icon: Icon(Icons.delete),
+              ),
+              IconButton(
+                onPressed: () {},
+                icon: Icon(Icons.edit),
+              ),
+            ],
+          ),
+        ),
       );
 
   Stream<List<User>> readUsers() => FirebaseFirestore.instance

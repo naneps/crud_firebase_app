@@ -14,12 +14,6 @@ class _UserPageState extends State<UserPage> {
   final controllerName = TextEditingController();
   final controllerAge = TextEditingController();
   final controllerBirthDay = DateEditingController();
-  @override
-  void initState() {
-    // TODO: implement initState
-
-    readUsrs();
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -47,6 +41,7 @@ class _UserPageState extends State<UserPage> {
                   age: int.parse(controllerAge.text),
                   birthday: controllerBirthDay.date,
                 );
+                print(controllerBirthDay.date);
                 createUser(user);
                 Navigator.pop(context, user);
               },
@@ -69,14 +64,7 @@ class _UserPageState extends State<UserPage> {
     final docUser = await FirebaseFirestore.instance.collection('users').doc();
     user.id = docUser.id;
     final json = user.toJson();
+    print(json);
     await docUser.set(json);
-  }
-
-  Future readUsrs() async {
-    final snapshot = await FirebaseFirestore.instance
-        .collection('users')
-        .get()
-        .then((value) => value.docs);
-    print(snapshot);
   }
 }

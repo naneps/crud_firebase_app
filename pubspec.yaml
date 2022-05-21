@@ -36,6 +36,7 @@ dependencies:
   cupertino_icons: ^1.0.2
   cloud_firestore: ^3.1.15
   date_time_field: ^0.0.2
+  cool_alert: ^1.1.0
 
 dev_dependencies:
   flutter_test:

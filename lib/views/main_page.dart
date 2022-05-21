@@ -1,6 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:crud_firebase_app/model/user.dart';
-import 'package:crud_firebase_app/user_page.dart';
+import 'package:crud_firebase_app/views/user_page.dart';
 import 'package:flutter/material.dart';
 
 class MainPage extends StatefulWidget {

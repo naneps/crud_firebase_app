@@ -1,4 +1,4 @@
-import 'package:crud_firebase_app/main_page.dart';
+import 'package:crud_firebase_app/views/main_page.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 

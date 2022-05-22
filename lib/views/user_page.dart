@@ -64,7 +64,6 @@ class _UserPageState extends State<UserPage> {
     final docUser = await FirebaseFirestore.instance.collection('users').doc();
     user.id = docUser.id;
     final json = user.toJson();
-    print(json);
     await docUser.set(json);
   }
 }

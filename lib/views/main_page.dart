@@ -43,13 +43,6 @@ class _MainPageState extends State<MainPage> {
               builder: (context) => UserPage(),
             ),
           );
-          FirebaseFirestore.instance.collection('users').snapshots().map(
-              (snapshot) => snapshot.docs
-                      .map((doc) => User.fromJson(doc.data()))
-                      .toList()
-                      .forEach((element) {
-                    element.age!;
-                  }));
         },
         child: Icon(Icons.add),
       ),
@@ -74,13 +67,13 @@ class _MainPageState extends State<MainPage> {
           child: Row(
             children: [
               IconButton(
-                onPressed: () {
-                  deleteUser(user.id!);
-                },
+                onPressed: () {},
                 icon: Icon(Icons.delete),
               ),
               IconButton(
-                onPressed: () {},
+                onPressed: () {
+                  ;
+                },
                 icon: Icon(Icons.edit),
               ),
             ],
